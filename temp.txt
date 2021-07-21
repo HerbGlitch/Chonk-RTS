@@ -1,0 +1,21 @@
+game
+    |
+    | -> Player |
+                | -> UI
+                |
+                | -> Handler    |
+                                | -> base ge::Object
+                                | -> Mob ge::Object
+
+
+
+Player
+    UI
+        Mouse (state, position)
+        Command Bar (unit selection, )
+
+    Armies
+        Handler ()
+            Base
+
+            Mob
