@@ -25,8 +25,7 @@
 
 all: compile link
 
-test: compile link
-	main.exe
+test: compile link run
 
 compile: main_code game
 
@@ -52,4 +51,7 @@ mobs:
 
 
 link:
-	g++ src/compiled/*.o -Lsrc/lib -o main -lmingw32 -lSDL2main -lSDL2
+	cd src/bin && g++ ../compiled/*.o -L../lib -o main -lmingw32 -lSDL2main -lSDL2 -lsdl2_image
+
+run:
+	./src/bin/main.exe
