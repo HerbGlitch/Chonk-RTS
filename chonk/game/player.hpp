@@ -1,7 +1,7 @@
 #pragma once
 #include <ge/ge.hpp>
 #include "ui/handler.hpp"
-// #include "armies/handler.hpp"
+#include "armies/handler.hpp"
 
 namespace herbglitch {
     class Player : public ge::Object {
@@ -14,6 +14,6 @@ namespace herbglitch {
 
     private:
         ui::Handler *uiHandler;
-        // armies::Handler *armiesHandler;
+        armies::Handler *armiesHandler;
     };
 }

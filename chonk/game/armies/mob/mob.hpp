@@ -1,14 +1,13 @@
 #pragma once
 
 #include <ge/ge.hpp>
+#include "mobTypes.hpp"
 
 namespace herbglitch {
     namespace armies {
-        enum class MobType { BASIC, ADVANCED };
-
         class Mob : public ge::Object {
         public:
-            Mob(ge::Data *data, sf::Vector2f coords, MobType mobType, unsigned int id, sf::Color color);
+            Mob(ge::Data *data, SDL_Rect coords, MobType mobType, unsigned int id);
             ~Mob();
 
             void update();
@@ -16,10 +15,7 @@ namespace herbglitch {
 
             void select(bool selected = true){ this->selected = selected; }
 
-            sf::CircleShape &getMob(){ return mob; }
-
         private:
-            sf::CircleShape mob;
             MobType mobType;
 
             bool selected;

@@ -6,6 +6,7 @@
 #include "handler.hpp"
 #include "object.hpp"
 #include "input/mouse.hpp"
+#include "resource/spritesheet.hpp"
 
 namespace ge {
     struct Data {

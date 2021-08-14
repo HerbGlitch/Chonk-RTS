@@ -2,14 +2,14 @@
 
 #include <ge/ge.hpp>
 #include "../ui/handler.hpp"
-#include "base/base.hpp"
-#include "mob/mob.hpp"
+// #include "base/base.hpp"
+// #include "mob/mob.hpp"
 
 namespace herbglitch {
     namespace armies {
         class Handler : public ge::Handler<ge::Object>{
         public:
-            Handler(ge::Data *data, ui::Handler *uiHandler, sf::Color color);
+            Handler(ge::Data *data, ui::Handler *uiHandler);
             ~Handler();
 
             void update();
@@ -19,8 +19,6 @@ namespace herbglitch {
 
             ge::Data *data;
             ui::Handler *uiHandler;
-
-            sf::Color color;
         };
     }
 }
