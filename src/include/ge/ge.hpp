@@ -7,6 +7,7 @@
 #include "object.hpp"
 #include "input/mouse.hpp"
 #include "resource/spritesheet.hpp"
+#include "resource/sprite.hpp"
 
 namespace ge {
     struct Data {
@@ -22,6 +23,7 @@ namespace ge {
         float dt;
     };
 
+    template <class initState>
     inline int Run(Data *data, int width, int height, const char *title){
         if(SDL_Init(SDL_INIT_VIDEO) < 0){
             printf("Error: initializing SDL\nSDL Error: ", SDL_GetError());
@@ -32,6 +34,10 @@ namespace ge {
             printf("Error: creating window and renderer\nSDL Error: ", SDL_GetError());
             return 3;
         }
+
+        SDL_SetWindowTitle(data->window, title);
+
+        data->state.add(new initState(data));
 
         while(true){
             SDL_PollEvent(&(data->event));

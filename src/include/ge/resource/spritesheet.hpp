@@ -9,24 +9,25 @@ namespace ge {
     namespace resource {
         class Spritesheet {
         public:
-            Spritesheet(const char *path){
+            Spritesheet(SDL_Renderer *renderer, const char *path){
                 IMG_Init(IMG_INIT_PNG);
+                SDL_Surface *surface = IMG_Load(path);
+                if(!surface){ printf("Error: reading png '%s'\nSDL_Image Error: %s", path, IMG_GetError()); }
 
-                spriteSheet = IMG_Load(path);
-                if(!spriteSheet){ printf("Error: reading png '%s'\nSDL_Image Error: %s", path, IMG_GetError()); }
-                SDL_LockSurface(spriteSheet);
+                spritesheet = SDL_CreateTextureFromSurface(renderer, surface);
 
+                SDL_FreeSurface(surface);
                 IMG_Quit();
             }
 
             ~Spritesheet(){
-                SDL_FreeSurface(spriteSheet);
+                SDL_DestroyTexture(spritesheet);
             }
 
-            SDL_Surface *sheet(){ return spriteSheet; }
+            SDL_Texture *sheet(){ return spritesheet; }
 
         private:
-            SDL_Surface *spriteSheet;
+            SDL_Texture *spritesheet;
         };
     }
 }

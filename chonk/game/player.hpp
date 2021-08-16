@@ -1,12 +1,12 @@
 #pragma once
 #include <ge/ge.hpp>
 #include "ui/handler.hpp"
-#include "armies/handler.hpp"
+#include "entities/handler.hpp"
 
 namespace herbglitch {
     class Player : public ge::Object {
     public:
-        Player(ge::Data *data);
+        Player(ge::Data *data, ge::resource::Spritesheet *spritesheet);
         ~Player();
 
         void update();
@@ -14,6 +14,6 @@ namespace herbglitch {
 
     private:
         ui::Handler *uiHandler;
-        armies::Handler *armiesHandler;
+        entities::Handler *entitiesHandler;
     };
 }

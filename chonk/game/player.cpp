@@ -1,23 +1,23 @@
 #include "player.hpp"
 
 namespace herbglitch {
-    Player::Player(ge::Data *data): ge::Object(data){
+    Player::Player(ge::Data *data, ge::resource::Spritesheet *spritesheet): ge::Object(data){
         uiHandler = new ui::Handler(data);
-        armiesHandler = new armies::Handler(data, uiHandler);
+        entitiesHandler = new entities::Handler(data, spritesheet, uiHandler);
     }
 
     Player::~Player(){
-        delete armiesHandler;
+        delete entitiesHandler;
         delete uiHandler;
     }
 
     void Player::update(){
         uiHandler->update();
-        armiesHandler->update();
+        entitiesHandler->update();
     }
 
     void Player::render(){
-        armiesHandler->render();
+        entitiesHandler->render();
         uiHandler->render();
     }
 }

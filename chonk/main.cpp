@@ -4,9 +4,7 @@
 int main(int argc, char *argv[]){
     ge::Data *data = new ge::Data();
 
-    data->state.add(new herbglitch::Game(data));
-
-    ge::Run(data, 1920, 1080, "Chonk");
+    ge::Run<herbglitch::Game>(data, 1920, 1080, "Chonk");
 
     delete data;
 

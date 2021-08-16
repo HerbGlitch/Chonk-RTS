@@ -9,19 +9,19 @@ CXX = g++
 
 game := main.cpp game_game.cpp game_player.cpp
 ui := game_ui_handler.cpp game_ui_selector.cpp
-armies := game_armies_handler.cpp #game_armies_base_base.cpp game_armies_mob_mob.cpp
+entities := game_entities_handler.cpp game_entities_base_base.cpp game_entities_mob_mob.cpp
 
 %.cpp:
 	$(CXX) $(INCLUDES) -c $(PROJECT_DIR)/$(subst _,/,$@) -o $(COMPILED_DIR)/$(subst .cpp,,$@).o $(CPPFLAGS)
 
-.PHONY: all
 all: compile link
+.PHONY: all
 
-.PHONY: test
 test: compile link run
+.PHONY: test
 
+compile: $(game) $(ui) $(entities)
 .PHONY: compile
-compile: $(game) $(ui) $(armies)
 
 link:
 	$(CXX) $(COMPILED_DIR)/*.o -L$(LIB_DIR) -o $(BIN_DIR)/main $(LIBS)

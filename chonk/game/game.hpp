@@ -1,6 +1,7 @@
 #pragma once
 #include <ge/ge.hpp>
 #include "player.hpp"
+#include "../DEFINITIONS.hpp"
 
 namespace herbglitch {
     class Game : public ge::Object {
@@ -13,5 +14,6 @@ namespace herbglitch {
 
     private:
         Player *player;
+        ge::resource::Spritesheet *spritesheet;
     };
 }
