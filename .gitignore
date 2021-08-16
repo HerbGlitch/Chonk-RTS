@@ -1,4 +1,4 @@
-catsheet/
-src/compiled
+.vscode
 ./main
+*.o
 *.exe
