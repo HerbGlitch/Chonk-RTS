@@ -16,6 +16,7 @@ namespace herbglitch {
 
 
         void Mob::update(){
+            sprite->move((float)0.1 * data->dt, (float)0.1 * data->dt);
             if(select == selected){ return; }
             if(select){
                 sprite->setBounds(TEMP_ADVANCED);
@@ -25,6 +26,7 @@ namespace herbglitch {
                 sprite->setBounds(TEMP_BASIC);
                 selected = select;
             }
+
         }
     }
 }

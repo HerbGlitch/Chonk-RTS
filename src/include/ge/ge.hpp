@@ -41,7 +41,12 @@ namespace ge {
 
         data->state.add(new initState(data));
 
+        float lastTime = 0, currentTime;
         while(true){
+            currentTime = SDL_GetTicks();
+            data->dt = currentTime - lastTime;
+            lastTime = currentTime;
+
             SDL_PollEvent(&(data->event));
             if(data->event.type == SDL_QUIT){ break; }
             if(data->event.key.keysym.sym == SDLK_ESCAPE && data->event.key.type == SDL_KEYDOWN){ break; }
