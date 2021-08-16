@@ -1,10 +1,9 @@
 #pragma once
 
-#include <ge/ge.hpp>
-#include "../ui/handler.hpp"
 #include "entity.hpp"
 #include "base/base.hpp"
 #include "mob/mob.hpp"
+#include "../ui/handler.hpp"
 
 namespace herbglitch {
     namespace entities {

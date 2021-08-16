@@ -24,7 +24,7 @@ namespace ge {
             void setBounds(int x, int y){bounds.x = x; bounds.y = y; }
             void setBounds(SDL_Point pos){bounds.x = pos.x; bounds.y = pos.y; }
 
-            SDL_Rect &getBounds(){ return bounds; }
+            SDL_Rect &getPos(){ return pos; }
 
         private:
             SDL_Rect pos;

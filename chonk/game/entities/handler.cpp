@@ -22,7 +22,7 @@ namespace herbglitch {
             if(data->mouse[SDL_BUTTON_LEFT] != ge::Mouse::RELEASED){ return; }
             for(Entity *entity : hTypes){
                 SDL_Rect selectionArea = uiHandler->getSelectedArea();
-                bool contains = SDL_HasIntersection(&selectionArea, &entity->getBounds());
+                bool contains = (bool) SDL_HasIntersection(&selectionArea, &(entity->getPos()));
                 entity->setSelect(contains);
             }
         }

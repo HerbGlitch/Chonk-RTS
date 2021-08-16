@@ -14,7 +14,7 @@ namespace herbglitch {
 
         void setSelect(bool select = true){ this->select = select; }
 
-        SDL_Rect &getBounds(){ return sprite->getBounds(); }
+        SDL_Rect &getPos(){ return sprite->getPos(); }
 
     protected:
         ge::resource::Sprite *sprite;
