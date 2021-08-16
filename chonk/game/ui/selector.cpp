@@ -2,7 +2,7 @@
 
 namespace herbglitch {
     namespace ui {
-        Selector::Selector(ge::Data *data): data(data), x(data->mouse.x), y(data->mouse.y){}
+        Selector::Selector(ge::Data *data): data(data), selection({data->mouse.x, data->mouse.y, 0, 0}), x(data->mouse.x), y(data->mouse.y){}
 
         void Selector::update(){
             selection.x = (x < data->mouse.x)? x : data->mouse.x;

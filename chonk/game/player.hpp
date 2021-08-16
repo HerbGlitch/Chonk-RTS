@@ -6,7 +6,7 @@
 namespace herbglitch {
     class Player : public ge::Object {
     public:
-        Player(ge::Data *data, ge::resource::Spritesheet *spritesheet);
+        Player(ge::Data *data, SDL_Texture *spritesheet);
         ~Player();
 
         void update();

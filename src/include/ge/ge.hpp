@@ -6,6 +6,7 @@
 #include "handler.hpp"
 #include "object.hpp"
 #include "input/mouse.hpp"
+#include "input/keyboard.hpp"
 #include "resource/spritesheet.hpp"
 #include "resource/sprite.hpp"
 
@@ -13,6 +14,7 @@ namespace ge {
     struct Data {
         Handler<Object> state;
         Mouse mouse;
+        Keyboard keyboard;
 
         SDL_Window *window;
         SDL_Renderer *renderer;
@@ -42,7 +44,9 @@ namespace ge {
         while(true){
             SDL_PollEvent(&(data->event));
             if(data->event.type == SDL_QUIT){ break; }
+            if(data->event.key.keysym.sym == SDLK_ESCAPE && data->event.key.type == SDL_KEYDOWN){ break; }
             data->mouse.update(data->event);
+            // data->keyboard.update(data->event);
 
             data->state.update();
 

@@ -2,14 +2,14 @@
 
 namespace herbglitch {
     namespace entities {
-        Base::Base(ge::Data *data, ge::resource::Spritesheet *spritesheet, SDL_Point coords, EntityType entityType): Entity(data, entityType), selected(false){
+        Base::Base(ge::Data *data, SDL_Texture *spritesheet, SDL_Point coords, EntityType entityType): Entity(data, entityType), selected(false){
             switch(entityType){
                 case EntityType::BASE:
-                    sprite = new ge::resource::Sprite(spritesheet->sheet(), TEMP_BUILDING, coords);
+                    sprite = new ge::resource::Sprite(spritesheet, TEMP_BUILDING, coords);
                     break;
 
                 default:
-                    sprite = new ge::resource::Sprite(spritesheet->sheet(), TEMP_BUILDING, coords);
+                    sprite = new ge::resource::Sprite(spritesheet, TEMP_BUILDING, coords);
                     break;
             }
         }

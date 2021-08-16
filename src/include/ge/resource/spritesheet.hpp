@@ -7,28 +7,18 @@
 
 namespace ge {
     namespace resource {
-        class Spritesheet {
-        public:
-            Spritesheet(SDL_Renderer *renderer, const char *path){
-                IMG_Init(IMG_INIT_PNG);
-                SDL_Surface *surface = IMG_Load(path);
-                if(!surface){ printf("Error: reading png '%s'\nSDL_Image Error: %s", path, IMG_GetError()); }
+        static SDL_Texture *spritesheet(SDL_Renderer *renderer, const char *path){
+            IMG_Init(IMG_INIT_PNG);
+            SDL_Surface *surface = IMG_Load(path);
+            if(!surface){ printf("Error: reading png '%s'\nSDL_Image Error: %s", path, IMG_GetError()); }
 
-                spritesheet = SDL_CreateTextureFromSurface(renderer, surface);
+            SDL_Texture *spritesheet = SDL_CreateTextureFromSurface(renderer, surface);
 
-                SDL_FreeSurface(surface);
-                IMG_Quit();
-            }
+            SDL_FreeSurface(surface);
+            IMG_Quit();
 
-            ~Spritesheet(){
-                SDL_DestroyTexture(spritesheet);
-            }
-
-            SDL_Texture *sheet(){ return spritesheet; }
-
-        private:
-            SDL_Texture *spritesheet;
-        };
+            return spritesheet;
+        }
     }
 }
 

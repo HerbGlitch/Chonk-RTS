@@ -3,7 +3,7 @@ COMPILED_DIR := ./src/compiled
 LIB_DIR := ./src/lib
 PROJECT_DIR := ./chonk
 INCLUDES = -isystemsrc/include
-LIBS = -lmingw32 -lSDL2main -lSDL2 -lsdl2_image
+LIBS = -lSDL2main -lSDL2 -lSDL2_image
 CPPFLAGS = -Wall -Werror
 CXX = g++
 
@@ -24,7 +24,10 @@ compile: $(game) $(ui) $(entities)
 .PHONY: compile
 
 link:
-	$(CXX) $(COMPILED_DIR)/*.o -L$(LIB_DIR) -o $(BIN_DIR)/main $(LIBS)
+	$(CXX) $(COMPILED_DIR)/*.o -o $(BIN_DIR)/main $(LIBS)
 
 run:
-	cd src/bin && ./main.exe
+	cd src/bin && ./main
+
+valgrind:
+	cd src/bin && valgrind ./main --track-origins=yes

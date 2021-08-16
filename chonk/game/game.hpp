@@ -14,6 +14,6 @@ namespace herbglitch {
 
     private:
         Player *player;
-        ge::resource::Spritesheet *spritesheet;
+        SDL_Texture *spritesheet;
     };
 }

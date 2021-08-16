@@ -2,13 +2,13 @@
 
 namespace herbglitch {
     Game::Game(ge::Data *data): ge::Object(data){
-        spritesheet = new ge::resource::Spritesheet(data->renderer, SPRITESHEET);
+        spritesheet = ge::resource::spritesheet(data->renderer, SPRITESHEET);
         player = new Player(data, spritesheet);
     }
 
     Game::~Game(){
         delete player;
-        delete spritesheet;
+        SDL_DestroyTexture(spritesheet);
     }
 
     void Game::update(){

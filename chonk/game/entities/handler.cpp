@@ -2,7 +2,7 @@
 
 namespace herbglitch {
     namespace entities {
-        Handler::Handler(ge::Data *data, ge::resource::Spritesheet *spritesheet, ui::Handler *uiHandler): data(data), uiHandler(uiHandler){
+        Handler::Handler(ge::Data *data, SDL_Texture *spritesheet, ui::Handler *uiHandler): data(data), uiHandler(uiHandler){
             add(new Base(data, spritesheet, SDL_Point { 600, 300 }, EntityType::BASE));
             add(new  Mob(data, spritesheet, SDL_Point { 400, 100 }, EntityType::BASIC));
             add(new  Mob(data, spritesheet, SDL_Point { 500, 070 }, EntityType::BASIC));

@@ -1,7 +1,6 @@
 #pragma once
 
 #include <SDL2/SDL.h>
-#include <stdio.h>
 
 namespace ge {
     class Mouse {
@@ -37,7 +36,3 @@ namespace ge {
         State mouse[5];
     };
 }
-
-// const Uint8 *state = SDL_GetKeyboardState(nullptr);
-// printf("Mouse button: %d %d %d\n", SDL_GetMouseState(nullptr, nullptr), state[SDL_SCANCODE_1], SDL_GetModState());
-

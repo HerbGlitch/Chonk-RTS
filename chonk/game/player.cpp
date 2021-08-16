@@ -1,7 +1,7 @@
 #include "player.hpp"
 
 namespace herbglitch {
-    Player::Player(ge::Data *data, ge::resource::Spritesheet *spritesheet): ge::Object(data){
+    Player::Player(ge::Data *data, SDL_Texture *spritesheet): ge::Object(data){
         uiHandler = new ui::Handler(data);
         entitiesHandler = new entities::Handler(data, spritesheet, uiHandler);
     }

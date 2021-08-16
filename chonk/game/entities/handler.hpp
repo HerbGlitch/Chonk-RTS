@@ -9,7 +9,7 @@ namespace herbglitch {
     namespace entities {
         class Handler : public ge::Handler<Entity>{
         public:
-            Handler(ge::Data *data, ge::resource::Spritesheet *spritesheet, ui::Handler *uiHandler);
+            Handler(ge::Data *data, SDL_Texture *spritesheet, ui::Handler *uiHandler);
             ~Handler();
 
             void update();
